@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { Zap, AlertCircle, TrendingUp, Lightbulb, Cog, Code, DollarSign, Users, KanbanSquare, Target, Calculator, Rocket } from 'lucide-react'
-import { Header } from '@/components/header'
+import Header from '@/components/Header'
 import { LoadingProgress } from '@/components/loading-progress'
 import { AnalysisResults } from '@/components/analysis-results'
 import { GeminiService } from '@/lib/gemini'

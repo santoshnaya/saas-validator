@@ -1,4 +1,4 @@
-import { Header } from '@/components/header'
+import Header from '@/components/Header'
 import { Zap, Target, Lightbulb, Users, Code, TrendingUp } from 'lucide-react'
 
 export default function AboutPage() {
