@@ -63,10 +63,13 @@ export interface GapAnalysis {
 }
 
 export interface CompetitiveAnalysis {
-  marketOverview: string;
-  competitors: Competitor[];
-  gapAnalysis: GapAnalysis;
-  strategicRecommendations: string[];
+  name: string
+  pricing: string
+  marketShare: string
+  website: string
+  keyFeatures: string[]
+  strengths: string[]
+  weaknesses: string[]
 }
 
 export interface MRRProjection {
@@ -93,9 +96,15 @@ export interface FundingRequirements {
 }
 
 export interface ProfitMaximization {
-  strategy: string;
-  description: string;
-  potentialIncrease: string;
+  strategies: Array<{
+    title: string
+    description: string
+    impactRange: string
+  }>
+  scalingOpportunities: Array<{
+    title: string
+    description: string
+  }>
 }
 
 export interface RevenueStream {

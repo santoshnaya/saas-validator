@@ -3,12 +3,28 @@
 import { motion } from 'framer-motion'
 import { ChevronDown, Zap } from 'lucide-react'
 import Link from 'next/link'
+import { useAuth } from '@/contexts/AuthContext'
 
 export default function Hero() {
+  const { authUser, user } = useAuth()
+
   const scrollToNext = () => {
     const element = document.getElementById('features')
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
+  const handleValidateClick = () => {
+    if (!authUser) {
+      // Not logged in - go to login
+      window.location.href = '/login'
+    } else if (!user?.active) {
+      // Logged in but no active subscription - go to pricing
+      window.location.href = '/#pricing'
+    } else {
+      // Has active subscription - go to generate
+      window.location.href = '/generate'
     }
   }
 
@@ -66,10 +82,10 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
         >
-          <Link href="/generate" className="btn-primary text-sm uppercase tracking-wider">
+          <button onClick={handleValidateClick} className="btn-primary text-sm uppercase tracking-wider ">
             <Zap className="w-4 h-4 mr-2" />
             Validate Your Idea
-          </Link>
+          </button>
           <button 
             onClick={scrollToNext}
             className="btn-secondary text-sm uppercase tracking-wider"
